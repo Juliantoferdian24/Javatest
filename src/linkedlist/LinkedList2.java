@@ -257,6 +257,19 @@ public class LinkedList2 {
         head = last;
     }
 
+    public boolean detectLoop()
+    {
+        Node h = head;
+        HashSet<Node> s = new HashSet<Node>();
+        while (h != null) {
+            if (s.contains(h))
+                return true;
+            s.add(h);
+            h = h.next;
+        }
+        return false;
+    }
+
     public void printList() {
         Node tnode = head;
         while (tnode != null) {
@@ -267,11 +280,10 @@ public class LinkedList2 {
 
     public static void main(String[] args) {
         LinkedList2 llist1 = new LinkedList2();
-        llist1.insertAtEnd(2);
-        llist1.insertAtEnd(3);
-        llist1.insertAtEnd(5);
-        llist1.insertAtEnd(4);
-        llist1.insertAtEnd(1);
+        llist1.insertAtHead(20);
+        llist1.insertAtHead(4);
+        llist1.insertAtHead(15);
+        llist1.insertAtHead(10);
 
         LinkedList2 llist2 = new LinkedList2();
         llist2.insertAtEnd(3);
@@ -281,7 +293,5 @@ public class LinkedList2 {
 
         llist1.printList();
         System.out.println("------");
-        llist1.moveToFront();
-        llist1.printList();
     }
 }
