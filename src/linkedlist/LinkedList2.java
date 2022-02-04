@@ -270,6 +270,19 @@ public class LinkedList2 {
         return false;
     }
 
+    public void reverse(){
+        Node prev = null;
+        Node current = head;
+        Node next = null;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+    }
+
     public void printList() {
         Node tnode = head;
         while (tnode != null) {
@@ -293,5 +306,7 @@ public class LinkedList2 {
 
         llist1.printList();
         System.out.println("------");
+        llist1.reverse();
+        llist1.printList();
     }
 }
